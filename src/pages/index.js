@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Header from "../components/Header";
 
 
 export default function Home() {
@@ -8,7 +9,7 @@ export default function Home() {
         <title>Rafael Ecommerce</title>
       </Head>
 
-      <h1>TEste</h1>
+      <Header />
     </div>
   );
 }
