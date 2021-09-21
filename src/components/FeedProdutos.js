@@ -1,7 +1,6 @@
 import Produto from "./Produto";
 import Image from "next/dist/client/image";
-import bannerPropaganda1 from "../../public/assets/img/banner_propaganda1.jpg";
-import bannerPropaganda2 from "../../public/assets/img/banner_propaganda2.jpg";
+
 
 
 
@@ -21,8 +20,8 @@ function FeedProdutos({ produtos }) {
                 />
             ))}
 
-            <Image className=" md:col-span-full xl:col-span-full" unsized={true} src={bannerPropaganda1} alt="" />
 
+            <img className="md:col-span-full cursor-pointer" src="https://i.ibb.co/NrQ7Xtx/banner-propaganda1.jpg" alt="banner-propaganda1" />
 
             <div className="md:col-span-2">
                 {produtos.slice(4, 5).map(({ id, title, price, description, category, image }) => (
@@ -37,6 +36,9 @@ function FeedProdutos({ produtos }) {
                     />
                 ))}
             </div>
+            <img className="md:col-span-full cursor-pointer" src="https://i.ibb.co/GvgjxKb/banner-propaganda2.jpg" alt="banner-propaganda1" />
+
+
             {produtos.slice(5, produtos.length).map(({ id, title, price, description, category, image }) => (
                 <Produto
                     key={id}
