@@ -16,7 +16,6 @@ export default function Home({ produtos }) {
       <main className="max-w-screen-xl mx-auto">
         <Banner />
 
-
         <FeedProdutos produtos={produtos} />
       </main>
     </div>
@@ -37,6 +36,3 @@ export async function getServerSideProps(context) {
 
 }
 
-
-
-// https://fakestoreapi.com/products
