@@ -7,7 +7,7 @@ function Header() {
         <header>
 
             <div className="flex items-center bg-gray-400 p-1 flex-grow py-2" >
-                <div className="mt-2 flex items-center flex-grow sm:flex-grow-0">
+                <div className="mt-2 mr-1 flex items-center flex-grow sm:flex-grow-0">
                     <Image src={logo} width={150} height={40} objectFit="contain" className="cursor-pointer" />
                 </div>
 
