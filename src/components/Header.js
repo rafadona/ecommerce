@@ -6,7 +6,7 @@ function Header() {
     return (
         <header>
 
-            <div className="flex items-center bg-gray-300 p-1 flex-grow py-2" >
+            <div className="flex items-center bg-gray-400 p-1 flex-grow py-2" >
                 <div className="mt-2 flex items-center flex-grow sm:flex-grow-0">
                     <Image src={logo} width={150} height={40} objectFit="contain" className="cursor-pointer" />
                 </div>
@@ -36,8 +36,19 @@ function Header() {
 
 
 
-            <div>
-
+            <div className="flex items-center space-x-4 bg-gray-300 text-sm">
+                <p className="link flex items-center">
+                    <MenuIcon className="h-6 mr-1" />
+                    Todos
+                </p>
+                <p className="link">Eletronicos</p>
+                <p className="link">Oferta do dia</p>
+                <p className="link">Mais Vendidos</p>
+                <p className="link hidden sm:inline-flex">Livros</p>
+                <p className="link hidden sm:inline-flex">Computadores</p>
+                <p className="link hidden sm:inline-flex">Roupas</p>
+                <p className="link hidden md:inline-flex">Atendimento ao Cliente</p>
+                <p className="link hidden lg:inline-flex">Comprar novamente</p>
             </div>
 
         </header>
