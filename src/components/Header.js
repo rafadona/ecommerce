@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logo from "../img/rafadev.png";
+import logo from "../../public/assets/img/rafadev.png";
 import { MenuIcon, SearchIcon, ShoppingCartIcon } from "@heroicons/react/outline";
 
 function Header() {

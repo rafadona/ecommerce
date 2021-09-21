@@ -1,9 +1,11 @@
 import { FastForwardIcon } from "@heroicons/react/outline";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import background_img1 from "../img/background/milky-way_1280.jpg";
-import background_img2 from "../img/background/stairs_1280.jpg";
-import background_img3 from "../img/background/stars_1280.jpg";
+import background_img1 from "../../public/assets/img/background/milky-way_1280.jpg";
+import background_img2 from "../../public/assets/img/background/stairs_1280.jpg";
+import background_img3 from "../../public/assets/img/background/stars_1280.jpg";
+
+
 import Image from "next/image";
 
 
