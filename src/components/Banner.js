@@ -15,13 +15,13 @@ function Banner() {
             <div className="absolute w-full h-32 bg-gradient-to-t from-gray-100 to-transparent bottom-0 z-20" />
             <Carousel autoPlay infiniteLoop showStatus={false} showIndicators={false} showThumbs={false} interval={5000}>
                 <div>
-                    <Image loading="lazy" width={1280} height={719} src={background_img1} alt="" />
+                    <Image loading="lazy" width={1500} height={719} src={background_img1} alt="" />
                 </div>
                 <div>
-                    <Image loading="lazy" width={1280} height={719} src={background_img2} alt="" />
+                    <Image loading="lazy" width={1500} height={719} src={background_img2} alt="" />
                 </div>
                 <div>
-                    <Image loading="lazy" width={1280} height={719} src={background_img3} alt="" />
+                    <Image loading="lazy" width={1500} height={719} src={background_img3} alt="" />
                 </div>
 
             </Carousel>
