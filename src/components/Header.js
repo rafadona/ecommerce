@@ -1,14 +1,21 @@
 import Image from "next/image";
 import logo from "../../public/assets/img/rafadev.png";
 import { MenuIcon, SearchIcon, ShoppingCartIcon } from "@heroicons/react/outline";
+import { signIn, signOut, useSession, UseSession } from "next-auth/client";
+import { useRouter } from "next/router";
 
 function Header() {
+    const [session] = useSession();
+    const router = useRouter();
+
+
+
     return (
         <header>
 
             <div className="flex items-center bg-gray-400 p-1 flex-grow py-2" >
                 <div className="mt-2 mr-1 flex items-center flex-grow sm:flex-grow-0">
-                    <Image src={logo} width={150} height={40} objectFit="contain" className="cursor-pointer" />
+                    <Image onClick={() => router.push('/')} src={logo} width={150} height={40} objectFit="contain" className="cursor-pointer" />
                 </div>
 
 
@@ -18,15 +25,17 @@ function Header() {
                 </div>
 
                 <div className="text-gray-700 flex items-center text-xs space-x-6 mx-6 whitespace-nowrap">
-                    <div className="link"  >
-                        <p>Olá Rafael</p>
+                    <div onClick={!session ? signIn : signOut} className="link"  >
+                        <p>
+                            {session ? `Olá, ${session.user.name}` : "Fazer Login"}
+                        </p>
                         <p className="font-extrabold md:text-sm" >Conta e listas</p>
                     </div>
                     <div className="link">
                         <p>Devoluções</p>
                         <p className="font-extrabold md:text-sm" >e Pedidos</p>
                     </div>
-                    <div className="relative link flex items-center">
+                    <div onClick={() => router.push('/checkout')} className="relative link flex items-center">
                         <span className="absolute top-0 right-0 md:right-12 h-4 w-4 bg-yellow-400 text-center rounded-full text-black font-bold" >0</span>
                         <ShoppingCartIcon className="h-10" />
                         <p className="hidden md:inline font-extrabold md:text-sm mt-2" >Carrinho</p>
