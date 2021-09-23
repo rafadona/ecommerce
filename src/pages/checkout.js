@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { selectItems, selectTotal } from "../slices/basketSlice";
 import ProdutoCheckout from "../components/ProdutoCheckout";
 import { useSession } from "next-auth/client";
+import Footer from "../components/Footer";
 
 function Checkout() {
     const items = useSelector(selectItems);
@@ -16,7 +17,7 @@ function Checkout() {
             <main className="lg:flex max-w-screen-2xl">
 
                 {/* esquerda */}
-                <div className=" flex-grow m-5 shadow-sm" >
+                <div className="flex-grow m-5 shadow-sm" >
                     <Image src="https://i.ibb.co/D1Wm5xy/851-PCGaming-Grid-Narrow-1500x300.jpg" width={1500} height={300} />
 
                     <div className="flex flex-col p-5 space-y-10 bg-white">
@@ -43,7 +44,7 @@ function Checkout() {
 
                 {/* direita */}
 
-                <div className="flex flex-col bg-white p-10 shadow-md">
+                <div className="flex flex-col bg-white p-8 shadow-md">
                     {items.length > 0 && (
                         <div>
                             <h2 className="whitespace-nowrap">Subtotal ({items.length} itens):
@@ -53,13 +54,14 @@ function Checkout() {
                             </h2>
 
                             <button disabled={!session} className={`button mt-2 ${!session && "from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed"}`}>
-                                {!session ? "Faça o Login para Fechar o Pedido" : "Fechar Pedido"}
+                                {!session ? "Faça o Login para Fechar o Pedido" : "Finalizar Pedido"}
                             </button>
                         </div>
                     )}
 
                 </div>
             </main>
+
 
         </div>
     );

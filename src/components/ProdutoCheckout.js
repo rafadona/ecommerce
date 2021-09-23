@@ -23,12 +23,12 @@ function ProdutoCheckout({ id, title, price, rating, description, category, imag
     };
 
     return (
-        <div className="grid grid-cols-5">
+        <div className="grid grid-cols-5 shadow-md border-2">
             <Image src={image} height={200} width={200} objectFit="contain" />
 
             {/* meio */}
             <div className="col-span-3 ml-3">
-                <p>{title}</p>
+                <p className="link font-bold">{title}</p>
 
                 <div className="flex">
                     {Array(rating).fill().map((_, i) => (
@@ -38,13 +38,13 @@ function ProdutoCheckout({ id, title, price, rating, description, category, imag
 
                 <p className="text-xs my-2 line-clamp-3">{description}</p>
 
-                <div className="mb-5" >
+                <div className="mb-5 font-bold" >
                     <p>R$ {price}</p>
                 </div>
 
             </div>
             {/* direita */}
-            <div className="flex flex-col space-y-2 my-auto justify-self-end">
+            <div className="flex flex-col space-y-2 my-auto mr-2 justify-self-end">
                 <button onClick={addItemToBasket} className="button mt-auto">Adicionar ao Carrinho</button>
                 <button onClick={removeItemFromBasket} className="button mt-auto">Remover do Carrinho</button>
 

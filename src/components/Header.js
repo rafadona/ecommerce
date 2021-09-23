@@ -1,7 +1,7 @@
 import Image from "next/image";
 import logo from "../../public/assets/img/rafadev.png";
 import { MenuIcon, SearchIcon, ShoppingCartIcon } from "@heroicons/react/outline";
-import { signIn, signOut, useSession, UseSession } from "next-auth/client";
+import { signIn, signOut, useSession } from "next-auth/client";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { selectItems } from "../slices/basketSlice";
@@ -32,11 +32,11 @@ function Header() {
                         <p>
                             {session ? `Olá, ${session.user.name}` : "Fazer Login"}
                         </p>
-                        <p className="font-extrabold md:text-sm" >Conta e listas</p>
+                        <p className="font-extrabold md:text-sm" >Conta</p>
                     </div>
-                    <div className="link">
-                        <p>Devoluções</p>
-                        <p className="font-extrabold md:text-sm" >e Pedidos</p>
+                    <div onClick={() => router.push("/pedidos")} className="link">
+                        <p>Seus</p>
+                        <p className="font-extrabold md:text-sm" >Pedidos</p>
                     </div>
                     <div onClick={() => router.push('/checkout')} className="relative link flex items-center">
                         <span className="absolute top-0 right-0 md:right-12 h-4 w-4 bg-yellow-400 text-center rounded-full text-black font-bold" >

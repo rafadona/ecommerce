@@ -2,6 +2,7 @@ import Head from "next/head";
 import Header from "../components/Header";
 import Banner from "../components/Banner";
 import FeedProdutos from "../components/FeedProdutos";
+import Footer from "../components/Footer";
 
 
 export default function Home({ produtos }) {
@@ -18,6 +19,7 @@ export default function Home({ produtos }) {
 
         <FeedProdutos produtos={produtos} />
       </main>
+      <Footer />
     </div>
   );
 }
@@ -38,7 +40,9 @@ export default function Home({ produtos }) {
 
 export async function getStaticProps(context) {
 
-  const produtos = await fetch("https://fakestoreapi.com/products").then((res) => res.json());
+
+  const res = await fetch("https://fakestoreapi.com/products");
+  const produtos = await res.json();
 
   return {
     props: {

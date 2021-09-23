@@ -12,3 +12,7 @@
      border-yellow-300 rounded-sm focus:outline-none focus:ring-1 focus:ring-yellow-500 active:from-yellow-500;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
