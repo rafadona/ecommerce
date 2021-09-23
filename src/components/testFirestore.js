@@ -25,8 +25,8 @@ function TestFirestore() {
                 born: 1990,
             });
             console.log("Document written with ID: ", docRef.id);
-
             router.push("/sucesso");
+            limparCarrinho();
         } catch (e) {
             console.error("Error adding document: ", e);
         }
@@ -35,9 +35,15 @@ function TestFirestore() {
 
     return (
         <div>
-            <button onClick={addDataFirestore} className="button">teste firestore</button>
-            <button onClick={limparCarrinho} className="button">teste limpar carrinho</button>
+            <div className="my-2">
+                <button onClick={addDataFirestore} className="button">teste firestore</button>
+
+            </div>
+            <div>
+                <button onClick={limparCarrinho} className="button">limpar carrinho</button>
+            </div>
         </div>
+
     );
 }
 
