@@ -5,6 +5,8 @@ import { selectItems, selectTotal } from "../slices/basketSlice";
 import ProdutoCheckout from "../components/ProdutoCheckout";
 import { useSession } from "next-auth/client";
 import Footer from "../components/Footer";
+import TestFirestore from "../components/testFirestore";
+
 
 function Checkout() {
     const items = useSelector(selectItems);
@@ -56,6 +58,7 @@ function Checkout() {
                             <button disabled={!session} className={`button mt-2 ${!session && "from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed"}`}>
                                 {!session ? "Faça o Login para Fechar o Pedido" : "Finalizar Pedido"}
                             </button>
+                            <TestFirestore />
                         </div>
                     )}
 

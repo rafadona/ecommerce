@@ -29,7 +29,7 @@ function Pedidos({ pedidos }) {
 export default Pedidos;
 
 
-export async function getServerSideProps(context) {
+// export async function getServerSideProps(context) {
 
 
-}
+// }
