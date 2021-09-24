@@ -91,7 +91,7 @@ function Checkout() {
                                 <button onClick={finalizarPedido} disabled={!session} className={`button mt-2 ${!session && "from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed"}`}>
                                     {!session ? "Faça o Login para Fechar o Pedido" : "Finalizar Pedido"}
                                 </button>
-                                <button className="button my-4">Limpar carrinho</button>
+                                <button onClick={limparCarrinho} className="button my-4">Limpar carrinho</button>
                             </div>
                         </div>
 
