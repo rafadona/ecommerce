@@ -1,12 +1,13 @@
 import { collection, addDoc } from "firebase/firestore";
 import { useRouter } from "next/router";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import db from "../pages/api/firebase";
-import { clearBasket } from "../slices/basketSlice";
+import { clearBasket, selectItems } from "../slices/basketSlice";
 
 
 function TestFirestore() {
 
+    const items = useSelector(selectItems);
     const dispatch = useDispatch();
     const router = useRouter();
 

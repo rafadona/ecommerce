@@ -1,17 +1,68 @@
 import Header from "../components/Header";
 import Image from "next/image";
-import { useSelector } from "react-redux";
-import { selectItems, selectTotal } from "../slices/basketSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { clearBasket, selectItems, selectTotal } from "../slices/basketSlice";
 import ProdutoCheckout from "../components/ProdutoCheckout";
 import { useSession } from "next-auth/client";
-import Footer from "../components/Footer";
 import TestFirestore from "../components/testFirestore";
+import { useRouter } from "next/router";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import db from "./api/firebase";
 
 
 function Checkout() {
     const items = useSelector(selectItems);
     const total = useSelector(selectTotal);
+    const router = useRouter();
+    const dispatch = useDispatch();
     const [session] = useSession();
+
+    const limparCarrinho = () => {
+        const nada = [];
+        dispatch(clearBasket(nada));
+    };
+
+
+    // const createCheckoutSession = async () => {
+    //     try {
+    //         const checkoutSession = await axios.post("/api/create-checkout-session", {
+
+    //             items: items,
+    //             email: session.user.email,
+    //             total: total
+    //         });
+
+    //         router.push("/sucesso");
+    //         limparCarrinho();
+    //     } catch (error) {
+    //         console.error("Error adding document: ", error);
+    //     }
+
+
+    // };
+    const pedido = {
+        items: items,
+        email: session.user.email,
+        total: total,
+        time: serverTimestamp()
+
+        // timestamp: admin.firestore.FieldValue.serverTimestamp()
+    };
+
+    const finalizarPedido = async () => {
+        try {
+            const docRef = await addDoc(collection(db, "pedidos"), pedido);
+            console.log("Documento registrado no Banco de dados: ", docRef.id);
+            router.push("/sucesso");
+            limparCarrinho();
+        } catch (error) {
+            console.error("Erro adicionando no BD: ", error);
+        }
+    };
+
+
+
+
     return (
         <div className="bg-gray-100">
             <Header />
@@ -55,7 +106,7 @@ function Checkout() {
                                 </span>
                             </h2>
 
-                            <button disabled={!session} className={`button mt-2 ${!session && "from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed"}`}>
+                            <button onClick={finalizarPedido} disabled={!session} className={`button mt-2 ${!session && "from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed"}`}>
                                 {!session ? "Faça o Login para Fechar o Pedido" : "Finalizar Pedido"}
                             </button>
                             <TestFirestore />
@@ -68,6 +119,6 @@ function Checkout() {
 
         </div>
     );
-}
+};
 
 export default Checkout;
