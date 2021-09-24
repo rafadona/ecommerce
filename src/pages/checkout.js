@@ -24,15 +24,16 @@ function Checkout() {
 
 
     // };
-    const pedido = {
-        items: items,
-        email: session.user.email,
-        total: total,
-        time: serverTimestamp()
-    };
+
 
     const finalizarPedido = async () => {
         try {
+            const pedido = {
+                items: items,
+                email: session.user.email,
+                total: total,
+                time: serverTimestamp()
+            };
             const docRef = await addDoc(collection(db, "pedidos"), pedido);
             console.log("Documento registrado no Banco de dados: ", docRef.id);
             await router.push("/sucesso");
