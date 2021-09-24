@@ -4,10 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearBasket, selectItems, selectTotal } from "../slices/basketSlice";
 import ProdutoCheckout from "../components/ProdutoCheckout";
 import { useSession } from "next-auth/client";
-import TestFirestore from "../components/testFirestore";
 import { useRouter } from "next/router";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import db from "./api/firebase";
+
 
 
 function Checkout() {
@@ -23,44 +23,24 @@ function Checkout() {
     };
 
 
-    // const createCheckoutSession = async () => {
-    //     try {
-    //         const checkoutSession = await axios.post("/api/create-checkout-session", {
-
-    //             items: items,
-    //             email: session.user.email,
-    //             total: total
-    //         });
-
-    //         router.push("/sucesso");
-    //         limparCarrinho();
-    //     } catch (error) {
-    //         console.error("Error adding document: ", error);
-    //     }
-
-
     // };
     const pedido = {
         items: items,
         email: session.user.email,
         total: total,
         time: serverTimestamp()
-
-        // timestamp: admin.firestore.FieldValue.serverTimestamp()
     };
 
     const finalizarPedido = async () => {
         try {
             const docRef = await addDoc(collection(db, "pedidos"), pedido);
             console.log("Documento registrado no Banco de dados: ", docRef.id);
-            router.push("/sucesso");
+            await router.push("/sucesso");
             limparCarrinho();
         } catch (error) {
             console.error("Erro adicionando no BD: ", error);
         }
     };
-
-
 
 
     return (
@@ -97,8 +77,8 @@ function Checkout() {
 
                 {/* direita */}
 
-                <div className="flex flex-col bg-white p-8 shadow-md">
-                    {items.length > 0 && (
+                {items.length > 0 && (
+                    <div className=" bg-white p-8 shadow-md">
                         <div>
                             <h2 className="whitespace-nowrap">Subtotal ({items.length} itens):
                                 <span className="font-bold">
@@ -106,14 +86,16 @@ function Checkout() {
                                 </span>
                             </h2>
 
-                            <button onClick={finalizarPedido} disabled={!session} className={`button mt-2 ${!session && "from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed"}`}>
-                                {!session ? "Faça o Login para Fechar o Pedido" : "Finalizar Pedido"}
-                            </button>
-                            <TestFirestore />
+                            <div className=" flex flex-col">
+                                <button onClick={finalizarPedido} disabled={!session} className={`button mt-2 ${!session && "from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed"}`}>
+                                    {!session ? "Faça o Login para Fechar o Pedido" : "Finalizar Pedido"}
+                                </button>
+                                <button className="button my-4">Limpar carrinho</button>
+                            </div>
                         </div>
-                    )}
 
-                </div>
+                    </div>
+                )}
             </main>
 
 
