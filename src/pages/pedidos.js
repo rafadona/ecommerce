@@ -4,6 +4,7 @@ import db from "./api/firebase";
 import { collection, getDocs, getDoc, doc } from "firebase/firestore";
 import { query, orderBy, limit } from "firebase/firestore";
 import moment from "moment";
+import Pedido from "../components/Pedido";
 
 function Pedidos({ pedidos }) {
     const [session] = useSession();
@@ -27,20 +28,20 @@ function Pedidos({ pedidos }) {
                 </h1>
 
                 {session ? (
-                    <div>
-                        <h2>{pedidos.id} </h2>
-                        <p>{pedidos.email}</p>
-                        <p>{pedidos.time}</p>
-                        <button onClick={printPedidos} className="button">print pedidos</button>
-
-                    </div>
+                    <h2>{pedidos.length} pedidos</h2>
 
                 ) : (
                     <h2>Por favor faça o login para ver seus pedidos</h2>
                 )}
 
                 <div className="mt-5 space-y-4 ">
+                    <div>
+                        {pedidos?.map(({ id, email, total, time, itens }) => (
+                            <Pedido key={id} id={id} email={email} total={total} time={time} itens={itens} />
+                        ))}
+                        <button onClick={printPedidos} className="button">print pedidos</button>
 
+                    </div>
                 </div>
             </main>
 

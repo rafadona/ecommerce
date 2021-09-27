@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Banner from "../components/Banner";
 import FeedProdutos from "../components/FeedProdutos";
 import Footer from "../components/Footer";
+import { getSession } from "next-auth/client";
 
 
 export default function Home({ produtos }) {
@@ -38,8 +39,9 @@ export default function Home({ produtos }) {
 
 // }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
 
+  const session = await getSession(context);
 
   const res = await fetch("https://fakestoreapi.com/products");
   const produtos = await res.json();
@@ -47,6 +49,7 @@ export async function getStaticProps(context) {
   return {
     props: {
       produtos,
+      session
     }
   };
 
