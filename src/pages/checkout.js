@@ -5,7 +5,7 @@ import { clearBasket, selectItems, selectTotal } from "../slices/basketSlice";
 import ProdutoCheckout from "../components/ProdutoCheckout";
 import { useSession } from "next-auth/client";
 import { useRouter } from "next/router";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp, doc, setDoc } from "firebase/firestore";
 import db from "./api/firebase";
 import Footer from "../components/Footer";
 
@@ -26,12 +26,31 @@ function Checkout() {
     const finalizarPedido = async () => {
         try {
             const pedido = {
-                items: items,
+                itens: items,
                 email: session.user.email,
                 total: total,
                 time: serverTimestamp()
             };
             const docRef = await addDoc(collection(db, "pedidos"), pedido);
+            console.log("Documento registrado no Banco de dados: ", docRef.id);
+            await router.push("/sucesso");
+            limparCarrinho();
+        } catch (error) {
+            console.error("Erro adicionando no BD: ", error);
+        }
+    };
+
+    const testeAddDb = async () => {
+
+        try {
+            const pedido = {
+                image: items.image,
+                email: session.user.email,
+                total: total,
+                time: serverTimestamp()
+            };
+            const docRef = await db.collection("usuarios").doc(`${session.user.email}`).collection("pedidos").doc(session.id);
+            docRef.set(pedido);
             console.log("Documento registrado no Banco de dados: ", docRef.id);
             await router.push("/sucesso");
             limparCarrinho();
@@ -82,6 +101,7 @@ function Checkout() {
                                         {!session ? "Faça o Login para Fechar o Pedido" : "Finalizar Pedido"}
                                     </button>
                                     <button onClick={limparCarrinho} className="button my-4">Limpar carrinho</button>
+                                    <button onClick={testeAddDb} className="button">teste add db</button>
                                 </div>
                             </div>
                         </div>
