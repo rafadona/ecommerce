@@ -11,6 +11,7 @@ export default function Home({ produtos }) {
     <div className="bg-gray-100">
       <Head>
         <title>Rafael Ecommerce</title>
+
       </Head>
 
       <Header />
@@ -26,20 +27,7 @@ export default function Home({ produtos }) {
 }
 
 
-
-// export async function getServerSideProps(context) {
-
-//   const produtos = await fetch("https://fakestoreapi.com/products").then((res) => res.json());
-
-//   return {
-//     props: {
-//       produtos,
-//     }
-//   };
-
-// }
-
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
 
   const session = await getSession(context);
 
@@ -49,7 +37,6 @@ export async function getServerSideProps(context) {
   return {
     props: {
       produtos,
-      session
     }
   };
 
