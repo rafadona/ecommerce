@@ -36,7 +36,7 @@ function FeedProdutos({ produtos }) {
                     />
                 ))}
             </div>
-            <img className="md:col-span-full cursor-pointer" src="https://i.ibb.co/GvgjxKb/banner-propaganda2.jpg" alt="banner-propaganda1" />
+            <img className="md:col-span-full cursor-pointer mt-2" src="https://i.ibb.co/GvgjxKb/banner-propaganda2.jpg" alt="banner-propaganda1" />
 
 
             {produtos.slice(5, produtos.length).map(({ id, title, price, description, category, image }) => (
