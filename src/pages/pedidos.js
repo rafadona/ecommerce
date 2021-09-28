@@ -16,9 +16,6 @@ function Pedidos({ pedidos }) {
         console.log(pedidos);
     };
 
-
-
-    // console.log(pedidos);
     return (
         <div>
             <Header />
@@ -28,21 +25,20 @@ function Pedidos({ pedidos }) {
                 </h1>
 
                 {session ? (
-                    <h2>{pedidos.length} pedidos</h2>
+                    <div className="mt-5 space-y-4 ">
+                        <h2>{pedidos.length} pedidos</h2>
+                        <div>
+                            {pedidos?.map(({ id, email, total, time, itens }) => (
+                                <Pedido key={id} id={id} email={email} total={total} time={time} itens={itens} />
+                            ))}
+
+
+                        </div>
+                    </div>
 
                 ) : (
                     <h2>Por favor faça o login para ver seus pedidos</h2>
                 )}
-
-                <div className="mt-5 space-y-4 ">
-                    <div>
-                        {pedidos?.map(({ id, email, total, time, itens }) => (
-                            <Pedido key={id} id={id} email={email} total={total} time={time} itens={itens} />
-                        ))}
-                        <button onClick={printPedidos} className="button">print pedidos</button>
-
-                    </div>
-                </div>
             </main>
 
         </div>
@@ -61,8 +57,6 @@ export async function getServerSideProps(context) {
             props: {},
         };
     }
-
-
 
 
     // const resposta = await getDocs(collection(db, "pedidos"));

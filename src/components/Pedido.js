@@ -14,7 +14,7 @@ function Pedido({ id, email, total, time, itens }) {
 
                 </div>
                 <p className="text-sm whitespace-nowrap sm:text-xl self-end flex-1 text-right text-blue-500">{itens.length} itens</p>
-                <p className="absolute top-2 right-2 w-40 lg:w-72 self-end truncate text-xs">PEDIDO # {id}</p>
+                <p className="absolute top-2 right-1 w-40 lg:w-72 truncate text-xs">PEDIDO # {id}</p>
 
             </div>
 

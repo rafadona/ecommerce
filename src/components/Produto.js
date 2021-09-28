@@ -3,6 +3,8 @@ import { useState } from "react";
 import { StarIcon } from "@heroicons/react/solid";
 import { useDispatch } from "react-redux";
 import { addToBasket } from "../slices/basketSlice";
+import Link from "next/link";
+
 
 const MAX_RATING = 5;
 const MIN_RATING = 1;
@@ -30,8 +32,14 @@ function Produto({ id, title, price, description, category, image }) {
         <div className="relative flex flex-col m-5 bg-white z-30 p-10">
             <p className="absolute top-2 right-2 text-xs italic text-gray-400">{category}</p>
 
-            <Image src={image} height={200} width={200} objectFit="contain" />
-            <h4 className="my-3 ">{title}</h4>
+
+            <Link key={id} href={`/produtos/${id}`}>
+                <a className="text-center">
+                    <Image src={image} height={200} width={200} objectFit="contain" />
+                    <h4 className="my-3 font-bold link text-left">{title} id-{id}</h4>
+                </a>
+
+            </Link>
 
             <div className="flex">
                 {Array(rating).fill().map((_, i) => (
