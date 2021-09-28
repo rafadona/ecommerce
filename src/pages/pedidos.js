@@ -5,6 +5,7 @@ import { collection, getDocs, getDoc, doc } from "firebase/firestore";
 import { query, orderBy, limit } from "firebase/firestore";
 import moment from "moment";
 import Pedido from "../components/Pedido";
+import Footer from "../components/Footer";
 
 function Pedidos({ pedidos }) {
     const [session] = useSession();
@@ -40,6 +41,10 @@ function Pedidos({ pedidos }) {
                     <h2>Por favor faça o login para ver seus pedidos</h2>
                 )}
             </main>
+
+            {pedidos.length > 0 && session && (
+                <Footer />
+            )}
 
         </div>
     );
