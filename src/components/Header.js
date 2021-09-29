@@ -16,7 +16,7 @@ function Header() {
     return (
         <header>
 
-            <div className="flex items-center bg-gray-400 p-1 flex-grow py-2" >
+            <div className="flex items-center bg-gray-100 p-1 flex-grow py-2" >
                 <div className="mt-2 mr-1 flex items-center flex-grow sm:flex-grow-0">
                     <Image onClick={() => router.push('/')} src={logo} width={150} height={40} objectFit="contain" className="cursor-pointer" />
                 </div>
@@ -49,7 +49,7 @@ function Header() {
             </div>
 
 
-
+            {/* 
             <div className="flex items-center space-x-4 bg-gray-300 text-sm">
                 <p className="link flex items-center">
                     <MenuIcon className="h-6 mr-1" />
@@ -63,7 +63,7 @@ function Header() {
                 <p className="link hidden sm:inline-flex">Roupas</p>
                 <p className="link hidden md:inline-flex">Atendimento ao Cliente</p>
                 <p className="link hidden lg:inline-flex">Comprar novamente</p>
-            </div>
+            </div> */}
 
         </header>
     );

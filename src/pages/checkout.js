@@ -68,7 +68,7 @@ function Checkout() {
                 <main className=" lg:flex max-w-screen-2xl ">
                     {/* esquerda */}
                     <div className="flex-grow m-5 shadow-sm" >
-                        <Image src="https://i.ibb.co/D1Wm5xy/851-PCGaming-Grid-Narrow-1500x300.jpg" className="cursor-pointer" width={1500} height={300} objectFit="contain" />
+                        <Image src="https://i.ibb.co/D1Wm5xy/851-PCGaming-Grid-Narrow-1500x300.jpg" width={1500} height={300} objectFit="contain" />
                         <div className="flex flex-col  p-5 space-y-10 bg-white">
                             <h1 className="text-3xl border-b pb-4">
                                 {items.length === 0 ? "Seu carrinho está vazio." : "Seu Carrinho de Compras"}

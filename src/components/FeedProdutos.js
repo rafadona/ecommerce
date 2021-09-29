@@ -18,7 +18,7 @@ function FeedProdutos({ produtos }) {
             ))}
 
 
-            <img className="md:col-span-full cursor-pointer mx-auto" src="https://i.ibb.co/NrQ7Xtx/banner-propaganda1.jpg" alt="banner-propaganda1" />
+            <img className="md:col-span-full mx-auto" src="https://i.ibb.co/NrQ7Xtx/banner-propaganda1.jpg" alt="banner-propaganda1" />
 
             <div className="md:col-span-2">
                 {produtos.slice(4, 5).map(({ id, title, price, description, category, image }) => (
@@ -33,7 +33,7 @@ function FeedProdutos({ produtos }) {
                     />
                 ))}
             </div>
-            <img className="md:col-span-full cursor-pointer mt-2 mx-auto" src="https://i.ibb.co/GvgjxKb/banner-propaganda2.jpg" alt="banner-propaganda1" />
+            <img className="md:col-span-full mt-2 mx-auto" src="https://i.ibb.co/GvgjxKb/banner-propaganda2.jpg" alt="banner-propaganda1" />
 
 
             {produtos.slice(5, produtos.length).map(({ id, title, price, description, category, image }) => (
