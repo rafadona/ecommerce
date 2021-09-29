@@ -78,9 +78,9 @@ function PaginaDetalhes({ produto, produtosCategoria, categoria }) {
             </div>
 
 
-            <div className=" border-black bg-gray-200">
+            <div className=" bg-gray-200">
                 <h2 className="font-bold mt-2 pt-2">Outros clientes também visualizaram esses produtos</h2>
-                <div className="relative grid grid-flow-row-dense md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mx-auto">
+                <div className={`relative grid grid-flow-row-dense md:grid-cols-2 lg:grid-cols-3 mx-auto ${produtosRelacionados.length > 3 ? `xl:grid-cols-4` : ""}  `}>
                     {produtosRelacionados.map(({ id, title, price, description, category, image }) => (
                         <Produto
                             key={id}
@@ -96,10 +96,6 @@ function PaginaDetalhes({ produto, produtosCategoria, categoria }) {
                 </div>
 
             </div>
-
-
-
-
 
             <Footer />
 
