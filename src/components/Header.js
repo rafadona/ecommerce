@@ -30,9 +30,12 @@ function Header() {
                 <div className="text-gray-700 flex items-center text-xs space-x-6 mx-6 whitespace-nowrap">
                     <div onClick={!session ? signIn : signOut} className="link"  >
                         <p>
-                            {session ? `Olá, ${session.user.name}` : "Fazer Login"}
+                            {session ? `Olá, ${session.user.name}` : "Fazer"}
                         </p>
-                        <p className="font-extrabold md:text-sm" >Conta</p>
+                        <p className="font-extrabold md:text-sm" >
+                            {session ? "Logout" : "Login"}
+
+                        </p>
                     </div>
                     <div onClick={() => router.push("/pedidos")} className="link">
                         <p>Meus</p>

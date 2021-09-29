@@ -30,7 +30,7 @@ function Pedido({ id, email, total, time, itens }) {
                 <div className="flex space-x-8 overflow-x-scroll">
                     {itens.map((item, i) => (
                         <Link className="cursor-pointer link" key={item.id} href={`/produtos/${item.id}`} passHref>
-                            <img title={item.title} key={i} src={item.image} alt="" className="h-28 object-contain sm:h-40 cursor-pointer" />
+                            <img title={item.title} key={i} src={item.image} alt="" className="h-28 object-contain sm:h-40 cursor-pointer hover:opacity-95" />
                         </Link>
 
                     ))}

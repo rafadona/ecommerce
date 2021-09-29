@@ -34,7 +34,7 @@ function Produto({ id, title, price, description, category, image }) {
 
 
             <Link key={id} href={`/produtos/${id}`}>
-                <a className="text-center link">
+                <a className="text-center link hover:opacity-95">
                     <Image src={image} height={200} width={200} objectFit="contain" />
                     <h4 className="my-3 font-bold text-left">{title}</h4>
                 </a>

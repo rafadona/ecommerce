@@ -20,11 +20,30 @@ function Footer() {
             </div>
 
             <div className="text-center bg-gray-600 flex flex-col p-3 space-y-2">
-                <h1 className="font-bold">Teste footer</h1>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum iure perspiciatis quia reprehenderit odit unde quaerat itaque eligendi sit quibusdam possimus animi ab, aperiam at cupiditate? Quisquam praesentium est accusamus.</p>
-                <p>
-                    Formas de pagamento aceitas: cartões de crédito (Visa, MasterCard, Elo e American Express) e boleto.
-                </p>
+
+                <div>
+                    <h2 className="font-bold">Atendimento SAC</h2>
+                    <p>Horário de atendimento:
+                        08:00 às 20:00 -
+                        Segunda a Sexta,
+                        horário de Brasília
+                        (exceto sábado, domingo e feriados) </p>
+                </div>
+
+                <div>
+                    <h2 className="font-bold">Central SAC</h2>
+                    <p>(99) 9999-9999</p>
+                    <p>faleconosco@rafaelecommerce.com.br</p>
+                </div>
+
+                <div>
+                    <h2 className="font-bold">
+                        Formas de pagamento aceitas:
+                    </h2>
+                    <p>
+                        Cartões de crédito (Visa, MasterCard, Elo e American Express) e boleto.
+                    </p>
+                </div>
             </div>
 
             <div className="bg-gray-700 p-4">
