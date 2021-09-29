@@ -1,4 +1,5 @@
 import moment from "moment";
+import Link from "next/link";
 
 function Pedido({ id, email, total, time, itens }) {
     return (
@@ -21,7 +22,9 @@ function Pedido({ id, email, total, time, itens }) {
             <div className="p-5 sm:p-10">
                 <div className="flex space-x-8 overflow-x-scroll">
                     {itens.map((item, i) => (
-                        <img title={item.title} key={i} src={item.image} alt="" className="h-20 object-contain sm:h-40" />
+                        <Link className="cursor-pointer link" key={item.id} href={`/produtos/${item.id}`} passHref>
+                            <img title={item.title} key={i} src={item.image} alt="" className="h-20 object-contain sm:h-40 cursor-pointer" />
+                        </Link>
 
                     ))}
                 </div>

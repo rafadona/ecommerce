@@ -26,7 +26,7 @@ function ProdutoCheckout({ id, title, price, rating, description, category, imag
     return (
         <div className="grid grid-cols-5 shadow-md border-2">
             <Link className="cursor-pointer link" key={id} href={`/produtos/${id}`}>
-                <a className='flex'>
+                <a className='flex hover:opacity-95'>
 
                     <Image src={image} height={200} width={200} objectFit="contain" />
                 </a>
