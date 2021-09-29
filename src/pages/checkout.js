@@ -101,7 +101,6 @@ function Checkout() {
                                         {!session ? "Faça o Login para Fechar o Pedido" : "Finalizar Pedido"}
                                     </button>
                                     <button onClick={limparCarrinho} className="button my-4">Limpar carrinho</button>
-                                    <button onClick={testeAddDb} className="button">teste add db</button>
                                 </div>
                             </div>
                         </div>
