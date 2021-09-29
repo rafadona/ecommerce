@@ -69,7 +69,7 @@ function PaginaDetalhes({ produto, produtosCategoria, categoria }) {
                         </div>
                     </div>
 
-                    <button onClick={addItemToBasket} className="w-full text-xl button lg:col-span-2 lg:pr-8 ">Adicionar ao Carrinho</button>
+                    <button onClick={addItemToBasket} className="w-full text-lg button lg:col-span-2 lg:pr-8 ">Adicionar ao Carrinho</button>
 
 
                 </div>

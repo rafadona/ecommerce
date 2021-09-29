@@ -2,6 +2,7 @@ import { StarIcon } from "@heroicons/react/solid";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { addToBasket, removeFromBasket } from "../slices/basketSlice";
+import Link from "next/link";
 
 
 function ProdutoCheckout({ id, title, price, rating, description, category, image }) {
@@ -24,11 +25,25 @@ function ProdutoCheckout({ id, title, price, rating, description, category, imag
 
     return (
         <div className="grid grid-cols-5 shadow-md border-2">
-            <Image src={image} height={200} width={200} objectFit="contain" />
+            <Link className="cursor-pointer link" key={id} href={`/produtos/${id}`}>
+                <a className='flex'>
+
+                    <Image src={image} height={200} width={200} objectFit="contain" />
+                </a>
+
+
+            </Link>
+
+
 
             {/* meio */}
             <div className="col-span-3 ml-3">
-                <p className="link font-bold">{title}</p>
+                <Link key={id} href={`/produtos/${id}`}>
+                    <a>
+                        <p className="link font-bold">{title}</p>
+                    </a>
+
+                </Link>
 
                 <div className="flex">
                     {Array(rating).fill().map((_, i) => (
@@ -55,7 +70,7 @@ function ProdutoCheckout({ id, title, price, rating, description, category, imag
                 </button>
 
             </div>
-        </div>
+        </div >
     );
 };
 

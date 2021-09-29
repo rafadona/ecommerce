@@ -22,7 +22,7 @@ function Pedidos({ pedidos }) {
             <Header />
             <main className="max-w-screen-lg mx-auto p-10">
                 <h1 className="text-3xl border-b mb-2 pb-1 border-yellow-400">
-                    Seus Pedidos
+                    Meus Pedidos
                 </h1>
 
                 {session ? (
