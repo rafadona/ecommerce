@@ -36,7 +36,7 @@ function ProdutoCheckout({ id, title, price, rating, description, category, imag
                     ))}
                 </div>
 
-                <p className="text-xs my-2 line-clamp-3">{description}</p>
+                <p className="hidden text-xs my-2 line-clamp-3">{description}</p>
 
                 <div className="mb-5 font-bold" >
                     <p>R$ {price}</p>
@@ -45,8 +45,14 @@ function ProdutoCheckout({ id, title, price, rating, description, category, imag
             </div>
             {/* direita */}
             <div className="flex flex-col space-y-2 my-auto mr-2 justify-self-end">
-                <button onClick={addItemToBasket} className="button mt-auto">Adicionar ao Carrinho</button>
-                <button onClick={removeItemFromBasket} className="button mt-auto">Remover do Carrinho</button>
+                <button onClick={addItemToBasket} className="button mt-auto">
+                    <span className="sm:hidden">+</span>
+                    <span className="hidden sm:block"> Adicionar ao Carrinho</span>
+                </button>
+                <button onClick={removeItemFromBasket} className="button mt-auto">
+                    <span className="sm:hidden">x</span>
+                    <span className="hidden sm:block"> Remover do Carrinho</span>
+                </button>
 
             </div>
         </div>
