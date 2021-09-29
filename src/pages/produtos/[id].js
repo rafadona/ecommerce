@@ -6,7 +6,7 @@ import Footer from "../../components/Footer";
 import Produto from "../../components/Produto";
 
 
-function PaginaDetalhes({ produto, produtosCategoria, categoria }) {
+function PaginaDetalhes({ produto, produtosCategoria }) {
     const dispatch = useDispatch();
 
     const addItemToBasket = () => {
@@ -24,22 +24,12 @@ function PaginaDetalhes({ produto, produtosCategoria, categoria }) {
         dispatch(addToBasket(produtoCarrinho));
     };
 
-
     const produtosRelacionados = produtosCategoria.filter((item) => item.id != produto.id && item.category === produto.category).slice(0, 4);
-
-
-
-    const testeProdutos = () => {
-        console.log(produtosCategoria);
-    };
 
 
     return (
         <div>
             <Header />
-
-
-
 
             <div className="mt-6 max-w-2xl mx-auto sm:px-2 lg:max-w-6xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-2">
                 <div className="aspect-w-4 aspect-h-5  sm:rounded-lg sm:overflow-hidden lg:aspect-w-3 lg:aspect-h-4">
@@ -68,12 +58,8 @@ function PaginaDetalhes({ produto, produtosCategoria, categoria }) {
                             </div>
                         </div>
                     </div>
-
                     <button onClick={addItemToBasket} className="w-full text-lg button lg:col-span-2 lg:pr-8 ">Adicionar ao Carrinho</button>
-
-
                 </div>
-
 
             </div>
 
@@ -128,8 +114,6 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
 
     const id = context.params.id;
-
-
 
     const res = await fetch(`https://fakestoreapi.com/products/${id}`);
     const produto = await res.json();

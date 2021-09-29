@@ -91,7 +91,7 @@ function Checkout() {
                     {items.length > 0 && (
                         <div className=" bg-white p-8 shadow-md">
                             <div>
-                                <h2 className="whitespace-nowrap">Subtotal ({items.length} itens):
+                                <h2 className="whitespace-nowrap">Subtotal ({items.length > 1 ? `${items.length} itens` : `${items.length} item`}):
                                     <span className="font-bold">
                                         <p>R$ {total.toFixed(2)}</p>
                                     </span>
