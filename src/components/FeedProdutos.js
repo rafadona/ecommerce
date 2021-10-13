@@ -1,4 +1,5 @@
 import Produto from "./Produto";
+import Image from "next/dist/client/image";
 
 
 function FeedProdutos({ produtos }) {
@@ -33,7 +34,7 @@ function FeedProdutos({ produtos }) {
                     />
                 ))}
             </div>
-            <img className="md:col-span-full mt-2 mx-auto" src="https://i.ibb.co/GvgjxKb/banner-propaganda2.jpg" alt="banner-propaganda1" />
+            <img className="md:col-span-full mt-2 mx-auto w-screen" src="https://i.ibb.co/GvgjxKb/banner-propaganda2.jpg" alt="banner-propaganda1" />
 
 
             {produtos.slice(5, produtos.length).map(({ id, title, price, description, category, image }) => (
